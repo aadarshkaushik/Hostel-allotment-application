@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Room Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/RGPVLOGO.jpg">
+    <script>
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "/Html/loginAdmin.html"
+        }
+
+        function is_logged_in() {
+            if (!sessionStorage.getItem("is_logged_in")) {
+                window.location.href = "./Html/loginAdmin.html"
+            }
+        }
+    </script>
+    <script>
+        window.addEventListener("load", is_logged_in())
+    </script>
+    <link rel="icon" href="/images/RGPVLOGO.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            font-family: 'Mukta', sans-serif;
+        }
+            
+            .top-nav a {
+                float: left;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                padding: 1px 10px;
+                text-decoration: none;
+                margin-top: 21px;
+                font-size: 17px;
+            }
+            
+            .top-nav img {
+                height: 50px;
+                width: 50px;
+                border-radius: 50px 50px 50px 50px;
+                margin-top: -22px;
+                margin-left: 20px;
+            }
+            
+            a.header-text {
+                font-size: 25px;
+                margin-top: 5px;
+            }
+            
+            .top-nav {
+                background-color: #65799B;
+                border-radius: 3px 3px 3px 3px;
+                margin-left: -5px;
+                height: 50px;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+            
+            a.studentText {
+                font-size: 25px;
+                margin-top: 5px;
+            }
+            
+            img.logout {
+                margin-left: 700px;
+                margin-top: 5px;
+                border-radius: 50px 50px 50px 50px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .container {
+                border: 2px solid brown;
+                margin-left: 50px;
+                margin-right: 50px;
+                margin-top: 70px;
+                height: 200px;
+                border-radius: 5px 5px 5px 5px;
+                box-shadow: 0px 15px 15px 0px gray;
+            }
+            
+            .dropdown {
+                margin-left: 50px;
+                margin-top: 50px;
+            }
+            
+            #textbox {
+                width: 250px;
+                height: 35px;
+                border-radius: 5px 5px 5px 5px;
+                margin-top: 10px;
+                border: 2px solid brown;
+            }
+            
+            label {
+                font-weight: bold;
+                font-size: 20px;
+            }
+            
+            #submitBtn {
+                padding: 7px 13px;
+                background-color: brown;
+                color: white;
+                border-radius: 5px 5px 5px 5px;
+                font-weight: bold;
+            }
+            
+            .admissionDataTable {
+                margin-top: 50px;
+                margin-left: 50px;
+                margin-right: 50px;
+                border: 2px solid brown;
+                border-radius: 5px 5px 5px 5px;
+                box-shadow: 0px 15px 15px 0px gray;
+            }
+            
+            .innerDiv {
+                margin-top: 5px;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            
+            .thEnrollment {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 150px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            
+            .thName {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 290px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            
+            .thCourse {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 150px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            
+            .thHostel {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 350px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            
+            .thFloor {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 100px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            
+            .thRoom {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 80px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            
+            .thAdmission {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 140px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            
+            .bottomdiv {
+                background-color: #65799B;
+                border-radius: 2px 2px 2px 2px;
+                width: 1330px;
+                height: 230px;
+                margin-top: 100px;
+            }
+            
+            .bottomText1,
+            .bottomText2 {
+                float: left;
+                width: 40%;
+            }
+            
+            .bottomText1 {
+                margin-left: 50px;
+                color: white;
+                font-size: large;
+            }
+            
+            .bottomText2 {
+                margin-left: 150px;
+                background-color: whitesmoke;
+                width: 500px;
+                height: 230px;
+                font-size: large;
+            }
+            
+            .bottom1h3 {
+                margin-left: 50px;
+            }
+            
+            div.endingText {
+                background-color: darkslategray;
+                width: 1330px;
+                height: 50px;
+            }
+            
+            .text-left,
+            .text-right {
+                float: left;
+                width: 40%;
+                color: white;
+                font-weight: bold;
+            }
+            
+            .text-left {
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+            
+            .text-right {
+                margin-left: 190px;
+                margin-top: 2px;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="top-nav">
+        <a href="/Html/Home.html" class="image"><img src="/images/RGPVLOGO.jpg"></a>
+        <a href="/Html/Home.html" class="header-text">RGPV Hostel Allotment ||</a>
+        <a href="/Html/adminDashboard.html" class="studentText">Room Dashboard</a>
+        <img onclick="return logout()" src="/images/logout.png" class="logout">
+    </div>
+    <div class="container">
+        <div class="dropdown">
+            <form action="http://localhost:3001/roomDashboard" method="POST" name="viewHostel">
+                <label for="hostelName">Select Hostel</label>
+                <br><br>
+                <select id="textbox" name="hostelName">
+                    <option value="APJ Abdul Kalam New Boys Hostel">APJ Abdul Kalam New Boys Hostel</option>
+                    <option value="Bhaskaracharya Boys Hostel">Bhaskaracharya Boys Hostel</option>
+                    <option value="Maharani Laxmibai Girls Hostel">Maharani Laxmibai Girls Hostel</option>
+                    <option value="Chandrashekhar Boys Hostel">Chandrashekhar Boys Hostel</option>
+            </select>
+                <input type="submit" value="View" id="submitBtn">
+            </form>
+        </div>
+    </div>
+    <div class="admissionDataTable">
+        <div class="innerDiv">
+            <table>
+                <tr>
+                    <th class="thEnrollment">Enrollment</th>
+                    <th class="thName">Name of Student</th>
+                    <th class="thCourse">Course</th>
+                    <th class="thHostel">Name of Hostel</th>
+                    <th class="thFloor">Floor</th>
+                    <th class="thRoom">Room No.</th>
+                    <th class="thAdmission">Admission Date</th>
+                </tr>
+                <tr>
+                    <td id="getEnrollment"></td>
+                    <td id="getName"></td>
+                    <td id="getCourse"></td>
+                    <td id="getHostel"></td>
+                    <td id="getFloor"></td>
+                    <td id="getRoom"></td>
+                    <td id="getAdmission"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="bottomdiv">
+        <div class="bottomText1">
+            <h3>Help & Support</h3>
+            <ul>
+                <li>Technical Support Call -<br>9753944391</li>
+                <li>Support E-mail -<br>aadarshkaushik654@gmail.com</li>
+            </ul>
+        </div>
+        <div class="bottomText2">
+            <h3 class="bottom1h3">Get in Touch With Us</h3>
+            <ul>
+                <li>Address: Narsingharh By pass Road,<br> Near Gandhi Nagar, Bhopal M.P</li>
+                <li>Mail: uit_director@rgtu.net</li>
+                <li>Call: +(91)-(755)-2678812</li>
+                <li>Landline: +(91)-(755)-2678819</li>
+            </ul>
+        </div>
+    </div>
+    <div class="endingText">
+        <div class="text-left ">Designed, Developed & Maintained by Aadarsh Kaushik</div>
+        <div class="text-right ">For Best view use IE 9 and above, Chrome and Mozilla Firefox at Resolution 1366 X 768.</div>
+    </div>
+</body>
+<script>
+    document.forms['viewHostel'].addEventListener('submit', (event) => 
+    {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // or response.text() or whatever the server sends
+        }).then((body) => {
+            // TODO handle body
+            console.log(body);
+            var getEnrollment = document.getElementById("getEnrollment");
+            var getName = document.getElementById("getName");
+            var getCourse = document.getElementById("getCourse");
+            var getHostel = document.getElementById("getHostel");
+            var getFloor = document.getElementById("getFloor");
+            var getRoom = document.getElementById("getRoom");
+            var getAdmission = document.getElementById("getAdmission");
+            let a = "";
+            let b = "";
+            let c = "";
+            let d = "";
+            let e = "";
+            let f = "";
+            let g = "";
+            console.log(body)
+            for (let count = 0; count < body.length; count++) {
+                console.log(count);
+                a = a + body[count].enrollment_dte + "<br>" + "<hr>";
+                b = b + body[count].studentName + "<br>" + "<hr>";
+                c = c + body[count].courseName + "<br>" + "<hr>";
+                d = d + body[count].hostelName + "<br>" + "<hr>";
+                e = e + body[count].floor + "<br>" + "<hr>";
+                f = f + body[count].roomNo + "<br>" + "<hr>";
+                g = g + body[count].admissionDate + "<br>" + "<hr>";
+            }
+            getEnrollment.innerHTML = a;
+            getName.innerHTML = b;
+            getCourse.innerHTML = c;
+            getHostel.innerHTML = d;
+            getFloor.innerHTML = e;
+            getRoom.innerHTML = f;
+            getAdmission.innerHTML = g;
+        }).catch((error) => {
+            // TODO handle error
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Fees Payment</title>
+        <meta name="description" content="fees payment, installment payment">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/images/RGPVLOGO.jpg">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+        <script>
+            function logout() {
+                sessionStorage.clear();
+                window.location.href = "/Html/loginAdmin.html"
+            }
+    
+            function is_logged_in() {
+                if (!sessionStorage.getItem("is_logged_in")) {
+                    window.location.href = "/Html/loginAdmin.html"
+                }
+                var qw = sessionStorage.getItem("item1")
+                var qww = sessionStorage.getItem("item2")
+                console.log(qw + qww);
+            }
+        </script>
+        <script>
+            window.addEventListener("load", is_logged_in())
+        </script>
+        <style type="text/css">
+            * {
+                font-family: 'Mukta', sans-serif;
+            }
+            
+            .top-nav a {
+                float: left;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                padding: 1px 10px;
+                text-decoration: none;
+                margin-top: 20px;
+                font-size: 17px;
+            }
+            
+            .top-nav img {
+                height: 50px;
+                width: 50px;
+                border-radius: 50px 50px 50px 50px;
+                margin-top: -18px;
+                margin-left: 20px;
+            }
+            
+            a.header-text {
+                font-size: 25px;
+                margin-top: 10px;
+            }
+            
+            .top-nav {
+                background-color: #65799B;
+                border-radius: 3px 3px 3px 3px;
+                margin-left: -5px;
+                height: 55px;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+            
+            a.studentText {
+                font-size: 25px;
+                margin-top: 10px;
+            }
+            
+            .logout img {
+                margin-top: -10px;
+                margin-left: 650px;
+                border-radius: 50px 50px 50px 50px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .form {
+                margin-top: 100px;
+                margin-left: 50px;
+                width: 1000px;
+            }
+            
+            legend {
+                display: block;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: 25px;
+                font-weight: bold;
+            }
+            
+            fieldset {
+                margin-top: 20px;
+                border-radius: 5px 5px 5px 5px;
+                box-shadow: 0px 20px 20px 10px gray;
+                border: 2px solid brown;
+            }
+            
+            #textbox {
+                width: 250px;
+                height: 40px;
+                border-radius: 5px 5px 5px 5px;
+                margin-top: 10px;
+                border: 2px solid brown;
+            }
+            
+            label {
+                text-decoration: none;
+                font-weight: bold;
+            }
+            
+            .innerForm {
+                margin-left: 60px;
+            }
+            
+            .submitbtn {
+                padding: 10px 30px;
+                border-radius: 10px 10px 10px 10px;
+                background-color: brown;
+                color: white;
+                border: 2px solid black;
+                font-weight: bold;
+            }
+            
+            .bottomdiv {
+                background-color: #65799B;
+                border-radius: 2px 2px 2px 2 px;
+                width: 1330px;
+                height: 230px;
+                margin-top: 70px;
+            }
+            
+            .bottomText1,
+            .bottomText2 {
+                float: left;
+                width: 40%;
+            }
+            
+            .bottomText1 {
+                margin-left: 50px;
+                color: white;
+                font-size: large;
+            }
+            
+            .bottomText2 {
+                margin-left: 150px;
+                background-color: whitesmoke;
+                width: 500px;
+                height: 230px;
+                font-size: large;
+            }
+            
+            .bottom1h3 {
+                margin-left: 50px;
+            }
+            
+            div.endingText {
+                background-color: darkslategray;
+                width: 1330px;
+                height: 50px;
+            }
+            
+            .text-left,
+            .text-right {
+                float: left;
+                width: 40%;
+                color: white;
+                font-weight: bold;
+            }
+            
+            .text-left {
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+            
+            .text-right {
+                margin-left: 190px;
+                margin-top: 2px;
+            }
+        </style>    
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="top-nav">
+            <a href="/Html/Home.html" class="image"><img src="/images/RGPVLOGO.jpg"></a>
+            <a href="/Html/Home.html" class="header-text">RGPV Hostel Allotment ||</a>
+            <a href="/Html/accounts.html" class="studentText">Hostel Fees Payment</a>
+            <a href="/Html/loginAdmin.html" class="logout" onclick="return logout()"><img src="/images/logout.png" class="logout"></a>
+        </div>
+        <div class="form">
+            <form name="feePaymentForm" id="feePaymentForm" action="http://localhost:3001/feePaymentForm" method="post">
+                <fieldset>
+                    <legend>Fee Payment</legend><br>
+                    <div class="innerForm">
+                        <label for="enrollment_dte">Enrollment No./DTE No.</label>
+                        <br>
+                        <input type="text" id="textbox" name="enrollment_dte" required>
+                        <br><br>
+                        <label for="full_name">Full Name :</label>
+                        <br>
+                        <input type="text" placeholder="Enter your full name" id="textbox" name="full_name" required>
+                        <br><br>
+                        <label for="hostelName">Allotted Hostel</label>
+                        <br>
+                        <select id="textbox" name="hostelName">
+                           <option value="APJ Abdul Kalam New Boys Hostel">APJ Abdul Kalam New Boys Hostel</option>
+                           <option value="Bhaskaracharya Boys Hostel">Bhaskaracharya Boys Hostel</option>
+                           <option value="Maharani Laxmibai Girls Hostel">Maharani Laxmibai Girls Hostel</option>
+                           <option value="Chandrashekhar Boys Hostel">Chandrashekhar Boys Hostel</option>
+                         </select>
+                         <br><br>
+                        <label for="course">Course</label>
+                        <br>
+                        <input type="text" name="course" placeholder="Enter your course" id="textbox" required>
+                        <br><br>
+                        <label for="semester">Semester</label>
+                        <br>
+                        <select id="textbox" name="semester" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <br><br>
+                        <label for="Installment">Select Installment Below :</label>
+                        <br>
+                        <select id="textbox" name="installment" required>
+                            <option value="First">First</option>
+                            <option value="Second">Second</option>
+                            <option value="Third">Third</option>
+                            <option value="Fourth">Fourth</option>
+                        </select>
+                        <br><br>
+                        <label for="feesAmount">Fees Amount :</label>
+                        <br>
+                        <input type="text" placeholder="Enter amount" name="feesAmount" id="textbox" required>
+                        <br><br>
+                        <label for="dateOfPayment">Payment Date :</label>
+                        <br>
+                        <input type="date" name="dateOfPayment" id="textbox" required>
+                        <br><br>
+                        <button class="submitbtn" onclick="return submitForm()">Pay</button>
+                        <br><br><br>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="bottomdiv">
+            <div class="bottomText1">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li>Technical Support Call -<br>9753944391</li>
+                    <li>Support E-mail -<br>aadarshkaushik654@gmail.com</li>
+                </ul>
+            </div>
+            <div class="bottomText2">
+                <h3 class="bottom1h3">Get in Touch With Us</h3>
+                <ul>
+                    <li>Address: Narsingharh By pass Road,<br> Near Gandhi Nagar, Bhopal M.P</li>
+                    <li>Mail: uit_director@rgtu.net</li>
+                    <li>Call: +(91)-(755)-2678812</li>
+                    <li>Landline: +(91)-(755)-2678819</li>
+                </ul>
+            </div>
+        </div>
+        <div class="endingText">
+            <div class="text-left ">Designed, Developed & Maintained by Aadarsh Kaushik</div>
+            <div class="text-right ">For Best view use IE 9 and above, Chrome and Mozilla Firefox at Resolution 1366 X 768.</div>
+        </div>
+
+    </body>
+    <script>
+        document.forms['feePaymentForm'].addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!validateForm()) {
+                return;
+            }
+            // TODO do something here to show user that form is being submitted
+            fetch(event.target.action, {
+                method: 'POST',
+                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+            }).then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                alert("Fees submitted successfully!");
+                return response.json(); // or response.text() or whatever the server sends
+            }).then((body) => {
+                // TODO handle body
+                window.location.href = "/html/adminDashboard.html";
+            }).catch((error) => {
+                // TODO handle error
+            });
+        });
+    
+        function submitForm() {
+            let form = document.getElementById("feePaymentForm");
+            //form.submit();
+        }
+    
+        function validateForm() {
+            var enrollment_dte = document.feePaymentForm.enrollment_dte.value;
+            var full_name = document.feePaymentForm.full_name.value;
+            var hostelName = document.feePaymentForm.hostelName.value;
+            var course = document.feePaymentForm.course.value;
+            var semester = document.feePaymentForm.semester.value;
+            var installment = document.feePaymentForm.installment.value;
+            var feesAmount = document.feePaymentForm.feesAmount.value;
+            var dateOfPayment = document.feePaymentForm.dateOfPayment.value;
+            if (enrollment_dte.length != 12) {
+                alert("Enrollment no. / DTE Registration no. must be 12 charachters!");
+                return false;
+            }
+            if (full_name === null && full_name === "") {
+                alert("Full name can't be blank!");
+                return false;
+            }
+            if (hostelName === " " && hostelName === null) {
+                alert("Hostel name can't be blank!");
+                return false;
+            }
+            if (course === " " && course === null) {
+                alert("You must fill the course!");
+                return false;
+            } 
+            if (semester === " " && semester === null) {
+                alert("You must fill the semester!");
+                return false;
+            }
+            if (installment === " " && installment === null) {
+                alert("You must fill the installment!");
+                return false;
+            }
+            if (feesAmount === " " && feesAmount === null) {
+                alert("You must fill the fees amount!");
+                return false;
+            }
+            if (dateOfPayment === " " && dateOfPayment === null) {
+                alert("You must fill the date!");
+                return false;
+            }else {
+                return true;
+            }
+        }
+    
+        function encodeQueryData(data) {
+            const ret = [];
+            for (let d in data)
+                ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+            return ret.join('&');
+        }
+    </script>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/RGPVLOGO.jpg">
+    <script>
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "/Html/loginStudent.html"
+        }
+
+        function is_logged_in() {
+            if (!sessionStorage.getItem("is_logged_in")) {
+                window.location.href = "./Html/loginStudent.html"
+            }
+            var qw = sessionStorage.getItem("item1");
+            var qww = sessionStorage.getItem("item2");
+            console.log(qw + qww);
+        }
+    </script>
+    <script>
+        window.addEventListener("load", is_logged_in())
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            font-family: 'Mukta', sans-serif;
+        }
+        
+        .top-nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 1px 10px;
+            text-decoration: none;
+            margin-top: 21px;
+            font-size: 17px;
+        }
+        
+        .top-nav img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50px 50px 50px 50px;
+            margin-top: -22px;
+            margin-left: 20px;
+        }
+        
+        a.header-text {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+        
+        .top-nav {
+            background-color: #65799B;
+            border-radius: 3px 3px 3px 3px;
+            margin-left: -5px;
+            height: 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        
+        a.studentText {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+        
+        .logout img {
+            margin-top: -17px;
+            margin-left: 650px;
+            border-radius: 50px 50px 50px 50px;
+            width: 40px;
+            height: 40px;
+        }
+        
+        legend {
+            display: block;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        fieldset {
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 20px;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        .firstfeildset {
+            height: 500px;
+            margin-top: 90px;
+        }
+        
+        .innerDiv {
+            margin-left: 50px;
+            margin-top: 10px;
+        }
+        
+        #profileText {
+            width: 300px;
+            height: 40px;
+            border: 2px solid brown;
+            border-radius: 5px 5px 5px 5px;
+            box-shadow: 5px 0px 10px 0px grey;
+        }
+        
+        h4 {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        
+        .profilediv1,
+        .profilediv2 {
+            float: left;
+            width: 30%;
+        }
+        
+        .profilediv3,
+        .profilediv4 {
+            float: left;
+            width: 50%;
+        }
+        
+        .profilediv4 {
+            margin-left: -230px;
+        }
+        
+        .profilediv5,
+        .profilediv6,
+        .profilediv7 {
+            float: left;
+            width: 30%;
+        }
+        
+        .profilediv8,
+        .profilediv9 {
+            float: left;
+            width: 50%;
+        }
+        
+        .profilediv9 {
+            margin-left: -230px;
+        }
+        
+        .profilediv10,
+        .profilediv11,
+        .profilediv12 {
+            float: left;
+            width: 30%;
+        }
+        
+        .secondFieldset {
+            height: 280px;
+        }
+        
+        .profilediv13,
+        .profilediv14 {
+            float: left;
+            width: 30%;
+        }
+        
+        .thirdFieldset {
+            height: 180px;
+        }
+        
+        .bottomdiv {
+            background-color: #65799B;
+            border-radius: 2px 2px 2px 2 px;
+            width: 1330px;
+            height: 230px;
+            margin-top: 60px;
+        }
+        
+        .bottomText1,
+        .bottomText2 {
+            float: left;
+            width: 40%;
+        }
+        
+        .bottomText1 {
+            margin-left: 50px;
+            color: white;
+            font-size: large;
+        }
+        
+        .bottomText2 {
+            margin-left: 150px;
+            background-color: whitesmoke;
+            width: 500px;
+            height: 230px;
+            font-size: large;
+        }
+        
+        .bottom1h3 {
+            margin-left: 50px;
+        }
+        
+        div.endingText {
+            background-color: darkslategray;
+            width: 1330px;
+            height: 50px;
+        }
+        
+        .text-left,
+        .text-right {
+            float: left;
+            width: 40%;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .text-left {
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        
+        .text-right {
+            margin-left: 190px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-nav">
+        <a href="/Html/Home.html" class="image"><img src="/images/RGPVLOGO.jpg"></a>
+        <a href="/Html/Home.html" class="header-text">RGPV Hostel Allotment ||</a>
+        <a href="/Html/studentDashboard.html" class="studentText">Student Profile</a>
+        <a href="/Html/loginStudent.html" class="logout" onclick="return logout()"><img src="/images/logout.png" class="logout"></a>
+    </div>
+    <div style="display: none;">
+        <form name="profileform" id="profileform" action="http://localhost:3001/profileView" method="post">
+            <input type="text" name="enrollment" id="enrollment">
+            <input type="submit" value="Submit" id="submitBtn">
+        </form>
+    </div>
+    <fieldset class="firstfeildset">
+        <legend>Personal Information</legend>
+        <div class="innerDiv">
+            <h3>Enrollment / DTE </h3>
+            <div id="profileText">
+                <h4 id="enrollment_dte"></h4>
+            </div>
+            <div class="profilediv1">
+                <h3>Name</h3>
+                <div id="profileText">
+                    <h4 id="name"></h4>
+                </div>
+            </div>
+            <div class="profilediv2">
+                <h3>Father's Name</h3>
+                <div id="profileText">
+                    <h4 id="fatherName"></h4>
+                </div>
+            </div>
+            <div class="profilediv3">
+                <h3>Date of Birth</h3>
+                <div id="profileText">
+                    <h4 id="dateOfBirth"></h4>
+                </div>
+            </div>
+            <div class="profilediv4">
+                <h3>Gender</h3>
+                <div id="profileText">
+                    <h4 id="gender"></h4>
+                </div>
+            </div>
+            <div class="profilediv5">
+                <h3>Category</h3>
+                <div id="profileText">
+                    <h4 id="category"></h4>
+                </div>
+            </div>
+            <div class="profilediv6">
+                <h3>Mobile No.</h3>
+                <div id="profileText">
+                    <h4 id="mobile"></h4>
+                </div>
+            </div>
+            <div class="profilediv7">
+                <h3>Parents Contact</h3>
+                <div id="profileText">
+                    <h4 id="parentContact"></h4>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="secondFieldset">
+        <legend>Address Information</legend>
+        <div class="innerDiv">
+            <div class="profilediv8">
+                <h3>Address</h3>
+                <div id="profileText">
+                    <h4 id="address"></h4>
+                </div>
+            </div>
+            <div class="profilediv9">
+                <h3>City</h3>
+                <div id="profileText">
+                    <h4 id="city"></h4>
+                </div>
+            </div>
+            <div class="profilediv10">
+                <h3>District</h3>
+                <div id="profileText">
+                    <h4 id="district"></h4>
+                </div>
+            </div>
+            <div class="profilediv11">
+                <h3>State</h3>
+                <div id="profileText">
+                    <h4 id="state"></h4>
+                </div>
+            </div>
+            <div class="profilediv12">
+                <h3>Pincode</h3>
+                <div id="profileText">
+                    <h4 id="pincode"></h4>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="thirdFieldset">
+        <legend>Academic Details</legend>
+        <div class="innerDiv">
+            <div class="profilediv13">
+                <h3>Branch</h3>
+                <div id="profileText">
+                    <h4 id="branch"></h4>
+                </div>
+            </div>
+            <div class="profilediv14">
+                <h3>Course</h3>
+                <div id="profileText">
+                    <h4 id="course"></h4>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="bottomdiv">
+        <div class="bottomText1">
+            <h3>Help & Support</h3>
+            <ul>
+                <li>Technical Support Call -<br>9753944391</li>
+                <li>Support E-mail -<br>aadarshkaushik654@gmail.com</li>
+            </ul>
+        </div>
+        <div class="bottomText2">
+            <h3 class="bottom1h3">Get in Touch With Us</h3>
+            <ul>
+                <li>Address: Narsingharh By pass Road,<br> Near Gandhi Nagar, Bhopal M.P</li>
+                <li>Mail: uit_director@rgtu.net</li>
+                <li>Call: +(91)-(755)-2678812</li>
+                <li>Landline: +(91)-(755)-2678819</li>
+            </ul>
+        </div>
+    </div>
+    <div class="endingText">
+        <div class="text-left ">Designed, Developed & Maintained by Aadarsh Kaushik</div>
+        <div class="text-right ">For Best view use IE 9 and above, Chrome and Mozilla Firefox at Resolution 1366 X 768.</div>
+    </div>
+</body>
+<script>
+    document.forms['profileform'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((response) => {
+            if (!response.ok) {
+                console.log(response.body)
+                alert("Wrong credential!")
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // or response.text() or whatever the server sends
+        }).then((body) => {
+            // TODO handle body
+            console.log(body);
+            document.getElementById("enrollment_dte").innerHTML = body[0].enrollment_dte;
+            document.getElementById("name").innerHTML = body[0].full_name;
+            document.getElementById("fatherName").innerHTML = body[0].father_name;
+            document.getElementById("dateOfBirth").innerHTML = body[0].dob;
+            document.getElementById("gender").innerHTML = body[0].gender;
+            document.getElementById("category").innerHTML = body[0].category;
+            document.getElementById("mobile").innerHTML = body[0].mobile;
+            document.getElementById("parentContact").innerHTML = body[0].parentContact;
+            document.getElementById("address").innerHTML = body[0].address;
+            document.getElementById("city").innerHTML = body[0].city;
+            document.getElementById("district").innerHTML = body[0].district;
+            document.getElementById("state").innerHTML = body[0].state;
+            document.getElementById("pincode").innerHTML = body[0].pincode;
+            document.getElementById("name").innerHTML = body[0].full_name;
+            document.getElementById("course").innerHTML = body[0].course;
+            document.getElementById("branch").innerHTML = body[0].branch;
+
+        }).catch((error) => {
+            // TODO handle error
+            console.log(error)
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        document.getElementById("enrollment").value = sessionStorage.getItem("enrollment");
+        document.getElementById("submitBtn").click();
+    })
+</script>
+
+</html>

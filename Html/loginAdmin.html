@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Login Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" width="device-width, initial-scale=1.0">
+    <meta name="description" content="Admin login module">
+    <meta name="author" content="Aadarsh Kaushik">
+    <link rel="icon" href="/images/RGPVLOGO.jpg">
+    <script>
+        function loader() {
+            if (sessionStorage.getItem("is_logged_in")) {
+                window.location.href = "/Html/adminDashboard.html"
+            }
+        }
+    </script>
+    <script>
+        window.addEventListener("load", loader)
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            font-family: 'Mukta', sans-serif;
+        }
+        form {
+            border: 1px solid gainsboro;
+            margin-left: 500px;
+            margin-right: 500px;
+            margin-top: 10px;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #65799B;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        button:hover {
+            opacity: 0.8;
+        }
+        
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: brown;
+        }
+        
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+        
+        img.avatar {
+            width: 20%;
+            height: 20%;
+            border-radius: 100px 100px 100px 100px;
+        }
+        
+        .container {
+            padding: 16px;
+        }
+        
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+        /* Change styles for span and cancel button on extra small screens */
+        
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+        
+        .top-nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 1px 10px;
+            text-decoration: none;
+            margin-top: 21px;
+            font-size: 17px;
+        }
+        
+        .top-nav img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50px 50px 50px 50px;
+            margin-top: -22px;
+            margin-left: 450px;
+        }
+        
+        a.header-text {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+        
+        .top-nav {
+            overflow: hidden;
+            background-color: #65799B;
+            border-radius: 3px 3px 3px 3px;
+            width: 1350px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-nav">
+        <a href="/Html/Home.html" class="image"><img src="/images/RGPVLOGO.jpg"></a>
+        <a href="/Html/Home.html" class="header-text">RGPV Hostel Allotment ||</a>
+    </div>
+    <h2>Login Admin</h2>
+
+    <form action="http://localhost:3001/loginAdmin" method="post" name="adminLoginForm" onsubmit="return validateForm()">
+        <div class="imgcontainer">
+            <img src="/images/accountimg.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="container">
+            <label for="adminID"><b>Admin ID</b></label>
+            <input type="text" placeholder="Enter Username" name="adminID" required>
+
+            <label for="adminPassword"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="adminPassword" required>
+
+            <button type="submit" onclick="">Login</button>
+            <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</body>
+<script>
+    document.forms['adminLoginForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((response) => {
+            if (!response.ok) {
+                console.log(response.body)
+                alert("Wrong credential!")
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            console.log(response);
+            return response.json(); // or response.text() or whatever the server sends
+        }).then((body) => {
+            // TODO handle body
+            sessionStorage.setItem("is_logged_in", true)
+            console.log("hello")
+            sessionStorage.setItem("adminID", body.adminID);
+
+            console.log(body);
+
+
+            window.location.href = "/Html/adminDashboard.html";
+
+
+        }).catch((error) => {
+            // TODO handle error
+            console.log(error)
+        });
+    });
+
+    function validateForm() {
+        var adminID = document.adminLoginForm.adminID.value;
+        var adminPassword = document.adminLoginForm.adminPassword.value;
+        if (adminID == " " || adminID == null) {
+            alert("Enrollment / DTE no. can't be blank!");
+            return false;
+        }
+        if (adminPassword == null || adminPassword == " ") {
+            alert("Password can't be blank!");
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+
+</html>

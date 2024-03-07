@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+        <script>
+            function logout() {
+                sessionStorage.clear();
+                window.location.href = "/Html/loginStudent.html"
+            }
+    
+            function is_logged_in() {
+                if (!sessionStorage.getItem("is_logged_in")) {
+                    window.location.href = "./Html/loginStudent.html"
+                }
+                var qw = sessionStorage.getItem("item1");
+                var qww = sessionStorage.getItem("item2");
+                console.log(qw + qww);
+            }
+        </script>
+        <script>
+            window.addEventListener("load", is_logged_in())
+        </script>
+        <style type="text/css">
+            * {
+                font-family: 'Mukta', sans-serif;
+            }
+            .top-nav a {
+                float: left;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                padding: 1px 10px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+            
+            .top-nav img {
+                height: 50px;
+                width: 50px;
+                border-radius: 50px 50px 50px 50px;
+                margin-left: 20px;
+            }
+            
+            a.header-text {
+                font-size: 25px;
+                margin-top: 6px;
+            }
+            
+            .top-nav {
+                overflow: hidden;
+                position: fixed;
+                margin-top: -7px;
+                background-color: #65799B;
+                border-radius: 3px 3px 3px 3px;
+                width: 1330px;
+                height: 55px;
+            }
+            
+            a.studentText {
+                font-size: 25px;
+                margin-top: 5px;
+            }
+            
+            img.logout {
+                margin-top: 5px;
+                margin-left: 750px;
+                border-radius: 60px 60px 60px 60px;
+                width: 40px;
+                height: 40px;
+            }
+            .admissionDataTable {
+                margin-top: 50px;
+                margin-left: 250px;
+                margin-right: 260px;
+                border: 2px solid brown;
+                border-radius: 5px 5px 5px 5px;
+                box-shadow: 0px 15px 15px 0px gray;
+            }
+            
+            .innerDiv {
+                margin-top: 5px;
+            }
+            .thSemester {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-left: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 200px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            
+            .thInstallment {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-left: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 200px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            .thAmount {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-left: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 200px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            .thDateOfPayment {
+                background-color: #04AA6d;
+                padding-top: 10px;
+                padding-left: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                width: 200px;
+                border-radius: 2px 2px 2px 2px;
+                border: 2px solid black;
+            }
+            .clickText{
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .clickbutton{
+                margin-left: 250px;
+            }
+            #enrollment{
+                width: 180px;
+                height: 34px;
+                border-radius: 5px 5px 5px 5px;
+                border: 2px solid brown;
+            }
+            #submitBtn {
+                padding: 7px 13px;
+                background-color: brown;
+                color: white;
+                border-radius: 5px 5px 5px 5px;
+                font-weight: bold;
+            }
+            .bottomdiv {
+                background-color: #65799B;
+                border-radius: 2px 2px 2px 2px;
+                width: 1330px;
+                height: 230px;
+                margin-top: 60px;
+            }
+            
+            .bottomText1,
+            .bottomText2 {
+                float: left;
+                width: 40%;
+            }
+            
+            .bottomText1 {
+                margin-left: 50px;
+                color: white;
+                font-size: large;
+            }
+            
+            .bottomText2 {
+                margin-left: 150px;
+                background-color: whitesmoke;
+                width: 500px;
+                height: 230px;
+                font-size: large;
+            }
+            
+            .bottom1h3 {
+                margin-left: 50px;
+            }
+            
+            div.endingText {
+                background-color: darkslategray;
+                width: 1330px;
+                height: 50px;
+            }
+            
+            .text-left,
+            .text-right {
+                float: left;
+                width: 40%;
+                color: white;
+                font-weight: bold;
+            }
+            
+            .text-left {
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+            
+            .text-right {
+                margin-left: 190px;
+                margin-top: 2px;
+            }
+        </style>
+        </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="top-nav">
+            <a href="/Html/Home.html" class="image"><img src="/images/RGPVLOGO.jpg"></a>
+            <a href="/Html/Home.html" class="header-text">RGPV Hostel Allotment ||</a>
+            <a href="/Html/studentDashboard.html" class="studentText">Accounts</a>
+            <a href="/Html/loginStudent.html" class="logout" onclick="return logout()"><img src="/images/logout.png" class="logout"></a>
+        </div><br><br><br>
+        <div class="clickbutton">
+            <form name="feesInfoView" id="feesInfoView" action="http://localhost:3001/feesInfoView" method="post">
+                <label for="feeStatus" class="clickText">Enter enrollment to  check </label>
+                <br><br>
+                <input type="text" name="enrollment" id="enrollment">
+                <input type="submit" value="Get Details" id="submitBtn">
+            </form>
+        </div>
+        <div class="admissionDataTable">
+            <div class="innerDiv">
+                <table>
+                    <tr>
+                        <th class="thSemester">Semester</th>
+                        <th class="thInstallment">Installment</th>
+                        <th class="thAmount">Amount</th>
+                        <th class="thDateOfPayment">Date of Payment</th>
+                    </tr>
+                    <tr>
+                        <td id="getSemester"></td>
+                        <td id="getInstallment"></td>
+                        <td id="getAmount"></td>
+                        <td id="getDateOfPayment"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="bottomdiv">
+            <div class="bottomText1">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li>Technical Support Call -<br>9753944391</li>
+                    <li>Support E-mail -<br>aadarshkaushik654@gmail.com</li>
+                </ul>
+            </div>
+            <div class="bottomText2">
+                <h3 class="bottom1h3">Get in Touch With Us</h3>
+                <ul>
+                    <li>Address: Narsingharh By pass Road,<br> Near Gandhi Nagar, Bhopal M.P</li>
+                    <li>Mail: uit_director@rgtu.net</li>
+                    <li>Call: +(91)-(755)-2678812</li>
+                    <li>Landline: +(91)-(755)-2678819</li>
+                </ul>
+            </div>
+        </div>
+        <div class="endingText">
+            <div class="text-left ">Designed, Developed & Maintained by Aadarsh Kaushik</div>
+            <div class="text-right ">For Best view use IE 9 and above, Chrome and Mozilla Firefox at Resolution 1366 X 768.</div>
+        </div>
+    </body>
+    <script>
+        document.forms['feesInfoView'].addEventListener('submit', (event) => 
+        {
+            event.preventDefault();
+            // TODO do something here to show user that form is being submitted
+            fetch(event.target.action, {
+                method: 'POST',
+                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+            }).then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json(); // or response.text() or whatever the server sends
+            }).then((body) => {
+                // TODO handle body
+                console.log(body);
+                var getSemester = document.getElementById("getSemester");
+                var getInstallment = document.getElementById("getInstallment");
+                var getAmount = document.getElementById("getAmount");
+                var getDateOfPayment = document.getElementById("getDateOfPayment");
+                let a = "";
+                let b = "";
+                let c = "";
+                let d = "";
+                console.log(body)
+                for (let count = 0; count < body.length; count++) {
+                    console.log(count);
+                    a = a + body[count].semester + "<br>" + "<hr>";
+                    b = b + body[count].installment + "<br>" + "<hr>";
+                    c = c + body[count].installmentAmount + "<br>" + "<hr>";
+                    d = d + body[count].dateOfPayment+ "<br>" + "<hr>";
+                }
+                getSemester.innerHTML = a;
+                getInstallment.innerHTML = b;
+                getAmount.innerHTML = c;
+                getDateOfPayment.innerHTML = d;
+            }).catch((error) => {
+                // TODO handle error
+            });
+        });
+    </script>
+</html>

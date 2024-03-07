@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Room Info</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/RGPVLOGO.jpg" type="image/x-icon">
+    <script>
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "/Html/loginStudent.html"
+        }
+
+        function is_logged_in() {
+            if (!sessionStorage.getItem("is_logged_in")) {
+                window.location.href = "./Html/loginStudent.html"
+            }
+            var qw = sessionStorage.getItem("item1")
+            var qww = sessionStorage.getItem("item2")
+            console.log(qw + qww);
+        }
+    </script>
+    <script>
+        window.addEventListener("load", is_logged_in())
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            font-family: 'Mukta', sans-serif;
+        }
+        
+        .top-nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 1px 10px;
+            text-decoration: none;
+            margin-top: 21px;
+            font-size: 17px;
+        }
+        
+        .top-nav img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50px 50px 50px 50px;
+            margin-top: -22px;
+            margin-left: 20px;
+        }
+        
+        a.header-text {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+        
+        .top-nav {
+            background-color: #65799B;
+            border-radius: 3px 3px 3px 3px;
+            margin-left: -5px;
+            height: 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        
+        a.studentText {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+        
+        .logout img {
+            margin-top: -17px;
+            margin-left: 680px;
+            border-radius: 50px 50px 50px 50px;
+            width: 40px;
+            height: 40px;
+        }
+        
+        legend {
+            display: block;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        fieldset {
+            height: 280px;
+            margin-top: 80px;
+            margin-left: 50px;
+            margin-right: 50px;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        .innerDiv {
+            margin-left: 50px;
+            margin-top: 10px;
+        }
+        
+        #profileText {
+            width: 200px;
+            height: 40px;
+            border: 2px solid brown;
+            border-radius: 5px 5px 5px 5px;
+            box-shadow: 5px 0px 10px 0px grey;
+        }
+        
+        #profileTextHostel {
+            width: 350px;
+            height: 40px;
+            border: 2px solid brown;
+            border-radius: 5px 5px 5px 5px;
+            box-shadow: 5px 0px 10px 0px grey;
+        }
+        
+        #profileTextFloor {
+            width: 250px;
+            height: 40px;
+            border: 2px solid brown;
+            border-radius: 5px 5px 5px 5px;
+            box-shadow: 5px 0px 10px 0px grey;
+        }
+        
+        h4 {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        
+        .profilediv1,
+        .profilediv2,
+        .profilediv3 {
+            float: left;
+            width: 30%;
+        }
+        
+        .bottomdiv {
+            background-color: #65799B;
+            border-radius: 2px 2px 2px 2 px;
+            width: 1330px;
+            height: 230px;
+            margin-top: 60px;
+        }
+        
+        .bottomText1,
+        .bottomText2 {
+            float: left;
+            width: 40%;
+        }
+        
+        .bottomText1 {
+            margin-left: 50px;
+            color: white;
+            font-size: large;
+        }
+        
+        .bottomText2 {
+            margin-left: 150px;
+            background-color: whitesmoke;
+            width: 500px;
+            height: 230px;
+            font-size: large;
+        }
+        
+        .bottom1h3 {
+            margin-left: 50px;
+        }
+        
+        div.endingText {
+            background-color: darkslategray;
+            width: 1330px;
+            height: 50px;
+        }
+        
+        .text-left,
+        .text-right {
+            float: left;
+            width: 40%;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .text-left {
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        
+        .text-right {
+            margin-left: 190px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-nav">
+        <a href="/Html/Home.html" class="image"><img src="/images/RGPVLOGO.jpg"></a>
+        <a href="/Html/Home.html" class="header-text">RGPV Hostel Allotment ||</a>
+        <a href="/Html/studentDashboard.html" class="studentText">Room Information</a>
+        <a href="/Html/loginStudent.html" class="logout" onclick="return logout()"><img src="/images/logout.png" class="logout"></a>
+    </div>
+    <div style="display: none;">
+        <form name="roomForm" id="roomForm" action="http://localhost:3001/roominfoStudent" method="POST">
+            <input type="text" name="enrollment" id="enrollment">
+            <input type="submit" value="Submit" id="submitBtn">
+        </form>
+    </div>
+    <fieldset class="firstfeildset">
+        <legend>Details</legend>
+        <div class="innerDiv">
+            <h3>Name of Hostel</h3>
+            <div id="profileTextHostel">
+                <h4 id="hostelName"></h4>
+            </div>
+            <div class="profilediv1">
+                <h3>Floor</h3>
+                <div id="profileTextFloor">
+                    <h4 id="floor"></h4>
+                </div>
+            </div>
+            <div class="profilediv2">
+                <h3>Room No.</h3>
+                <div id="profileText">
+                    <h4 id="roomNo"></h4>
+                </div>
+            </div>
+            <div class="profilediv3">
+                <h3>Admission Date</h3>
+                <div id="profileText">
+                    <h4 id="admissionDate"></h4>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="bottomdiv">
+        <div class="bottomText1">
+            <h3>Help & Support</h3>
+            <ul>
+                <li>Technical Support Call -<br>9753944391</li>
+                <li>Support E-mail -<br>aadarshkaushik654@gmail.com</li>
+            </ul>
+        </div>
+        <div class="bottomText2">
+            <h3 class="bottom1h3">Get in Touch With Us</h3>
+            <ul>
+                <li>Address: Narsingharh By pass Road,<br> Near Gandhi Nagar, Bhopal M.P</li>
+                <li>Mail: uit_director@rgtu.net</li>
+                <li>Call: +(91)-(755)-2678812</li>
+                <li>Landline: +(91)-(755)-2678819</li>
+            </ul>
+        </div>
+    </div>
+    <div class="endingText">
+        <div class="text-left ">Designed, Developed & Maintained by Aadarsh Kaushik</div>
+        <div class="text-right ">For Best view use IE 9 and above, Chrome and Mozilla Firefox at Resolution 1366 X 768.</div>
+    </div>
+</body>
+<script>
+    document.forms['roomForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((response) => {
+            if (!response.ok) {
+                console.log(response.body)
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // or response.text() or whatever the server sends
+        }).then((body) => {
+            // TODO handle body
+            console.log(body);
+            document.getElementById("enrollment").innerHTML = body[0].enrollment_dte;
+            document.getElementById("hostelName").innerHTML = body[0].hostelName;
+            document.getElementById("floor").innerHTML = body[0].floor;
+            document.getElementById("roomNo").innerHTML = body[0].roomNo;
+            document.getElementById("admissionDate").innerHTML = body[0].admissionDate;
+
+        }).catch((error) => {
+            // TODO handle error
+            console.log(error)
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        document.getElementById("enrollment").value = sessionStorage.getItem("enrollment");
+        console.log(sessionStorage.getItem("enrollment"));
+        document.getElementById("submitBtn").click();
+    })
+</script>
+
+</html>

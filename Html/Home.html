@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Hostel Allotment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" width="device-width, initial-scale=1.0">
+    <meta name="description" content="Hostel Allotment Services">
+    <meta name="author" content="Aadarsh Kaushik">
+    <link rel="icon" href="/images/RGPVLOGO.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            font-family: 'Mukta', sans-serif;
+        }
+        .top-nav {
+            overflow: hidden;
+            background-color: #65799B;
+            border-radius: 3px 3px 3px 3px;
+            width: auto;
+            height: 60px;
+        }
+        .welcomeText {
+            text-align: center;
+            text-decoration: none;
+            border-radius: 2px 5px 2px 5px;
+            border: 1px solid gray;
+        }
+        
+        #bg-slider {
+            overflow: hidden;
+        }
+        
+        #bg-slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            animation: 25s slidy infinite;
+        }
+        
+        #bg-slider figure img {
+            width: 20%;
+            float: left;
+            height: 70vh;
+        }
+        
+        @keyframes slidy {
+            0% {
+                left: 0%;
+            }
+            20% {
+                left: 0%;
+            }
+            25% {
+                left: -100%;
+            }
+            45% {
+                left: -100%;
+            }
+            50% {
+                left: -200%;
+            }
+            70% {
+                left: -200%;
+            }
+            75% {
+                left: -300%;
+            }
+            95% {
+                left: -300%;
+            }
+            100% {
+                left: -400%;
+            }
+        }
+        
+        div.introduction h3 {
+            text-align: left;
+            font-weight: bold;
+            color: white;
+            background-color: #65799B;
+            padding: 15px;
+            border: 1px solid grey;
+            border-radius: 2px 2px 2px 2px;
+        }
+        
+        div.introduction p {
+            border: 1px solid grey;
+            padding: 20px;
+            color: darkslategrey;
+            border-radius: 3px 3px 3px 3px;
+        }
+        
+        div.introduction:hover {
+            box-shadow: 1px 5px 5px 5px grey;
+            border-radius: 3px 3px 3px 3px;
+            color: black;
+        }
+        
+        div.introduction p:hover {
+            color: black;
+        }
+        
+        div.campus h3 {
+            text-align: left;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            background-color: #65799B;
+            padding: 15px;
+            border: 1px solid grey;
+            border-radius: 2px 2px 2px 2px;
+        }
+        
+        div.campus ul {
+            border: 1px solid grey;
+            padding: 20px;
+            color: darkslategrey;
+            border-radius: 3px 3px 3px 3px;
+        }
+        
+        div.campus li {
+            margin-left: 20px;
+        }
+        
+        div.campus:hover {
+            box-shadow: 1px 5px 5px 5px grey;
+            border-radius: 3px 3px 3px 3px;
+        }
+        
+        div.campus ul:hover {
+            color: black;
+        }
+        
+        .top-nav a {
+            float: left;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            margin-left: 15px;
+            margin-top: 17px;
+        }
+        
+        .login-dropdown {
+            float: left;
+            overflow: hidden;
+            margin-top: 16px;
+            margin-left: 10px;
+        }
+        
+        .login-dropdown .login-dropdown-button {
+            font-size: 18px;
+            border: none;
+            font-weight: bold;
+            outline: none;
+            color: white;
+            background-color: inherit;
+            margin: 0;
+        }
+        
+        .top-nav a:hover,
+        .login-dropdown:hover,
+        .login-dropdown-button {
+            background-color: #65799B;
+            border-radius: 2px 2px 2px 2px;
+        }
+        
+        .login-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #65799B;
+            min-width: 140px;
+            box-shadow: 0px 8px 16px 0px;
+            z-index: 1;
+        }
+        
+        .login-dropdown-content a {
+            float: none;
+            color: white;
+            padding: 10px 14px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+        
+        .login-dropdown:hover .login-dropdown-content {
+            display: block;
+        }
+        
+        .register-dropdown {
+            float: left;
+            overflow: hidden;
+            margin-top: 16px;
+            margin-left: 10px;
+        }
+        
+        .register-dropdown .register-dropdown-button {
+            font-size: 18px;
+            border: none;
+            font-weight: bold;
+            outline: none;
+            color: white;
+            background-color: inherit;
+            margin: 0;
+        }
+        
+        .top-nav a:hover,
+        .register-dropdown:hover,
+        .register-dropdown-button {
+            background-color: #65799B;
+        }
+        
+        .register-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #65799B;
+            min-width: 140px;
+            box-shadow: 0px 8px 16px 0px;
+            z-index: 1;
+        }
+        
+        .register-dropdown-content a {
+            float: none;
+            color: white;
+            padding: 10px 14px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+        
+        .register-dropdown:hover .register-dropdown-content {
+            display: block;
+        }
+        
+        .top-nav img {
+            height: 55px;
+            width: 55px;
+            border-radius: 50px 50px 50px 50px;
+            margin-top: -15px;
+        }
+        
+        a.header-text {
+            font-size: 25px;
+            margin-top: 12px;
+        }
+        
+        .top-nav a:hover:not(.header-text, .image) {
+            background-color: white;
+            color: black;
+            border-radius: 2px 2px 2px 2px;
+        }
+        
+        .bottomdiv {
+            background-color: #65799B;
+            border-radius: 2px 2px 2px 2 px;
+            width: 1330px;
+            height: 230px;
+        }
+        
+        .bottomText1,
+        .bottomText2 {
+            float: left;
+            width: 40%;
+        }
+        
+        .bottomText1 {
+            margin-left: 50px;
+            color: white;
+            font-size: large;
+        }
+        
+        .bottomText2 {
+            margin-left: 150px;
+            background-color: whitesmoke;
+            width: 500px;
+            height: 230px;
+            font-size: large;
+        }
+        
+        .bottom1h3 {
+            margin-left: 50px;
+        }
+        
+        div.endingText {
+            background-color: darkslategray;
+            width: 1330px;
+            height: 50px;
+        }
+        
+        .text-left,
+        .text-right {
+            float: left;
+            width: 40%;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .text-left {
+            margin-left: 10px;
+            margin-top: 12px;
+        }
+        
+        .text-right {
+            margin-left: 190px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="/Html/Home.html" class="image"><img src="/images/RGPVLOGO.jpg"></a>
+        <a href="/Html/Home.html" class="header-text">RGPV Hostel Allotment ||</a>
+        <div class="login-dropdown">
+            <button class="login-dropdown-button">Login</button>
+            <div class="login-dropdown-content">
+                <a href="/Html/loginStudent.html" class="student-button">Student</a>
+                <a href="/Html/loginAdmin.html" class="admin-button">Admin</a>
+            </div>
+        </div>
+        <div class="register-dropdown">
+            <button class="register-dropdown-button">Register</button>
+            <div class="register-dropdown-content">
+                <a href="/Html/studentRegister.html" class="student-button">Student</a>
+            </div>
+        </div>
+        <a href="/Html/notification.html">Notification</a>
+        <a href="/Html/Hostelinfo.html" target="_blank" title="Information about hostels and facility ">Hostel Info</a>
+        <a href="/Html/complaint.html" target="_blank" title="Complaint Box">Complaint Box</a>
+        <a href="/Html/Contact.html">Contact-us</a>
+    </div>
+    <div id="bg-slider">
+        <figure>
+            <img src="/images/hostelimage.jpg " alt="Hostel Image-1 ">
+            <img src="/images/hostelimage2.jpg " alt="Hostel Image-2 ">
+            <img src="/images/hostelimage3.jpg " alt="Hostel Image-3 ">
+            <img src="/images/hostelimage4.jpg " alt="Hostel Image-4 ">
+            <img src="/images/hostelimage5.jpg " alt="Hostel Image-5 ">
+        </figure>
+    </div>
+    <div class="introduction ">
+        <h3>About Rajiv Gandhi Proudyogiki Vishwavidyalaya</h5>
+            <p>Established in the year 1998, by Madhya Pradesh Vidhan Sabha Act 13, 1998. Over a sprawling Campus of about 247 acres, the Rajiv Gandhi Proudyogiki Vishwavidyalaya is marching towards development into a center of excellence in the arena of
+                Technical Education, Research and Innovations. Under its umbrella there are 05 UTD's , 200 affiliated Engineering Colleges, 98 Pharmacy Colleges, 95 MCA Colleges and 04 Architecture Colleges imparting Graduate level instructions running
+                around 17 under graduate level courses, 85 Polytechnic institutions offering diploma courses in emerging and conventional disciplines. Situated amidst an aesthetic and hilly surrounding, the University is now offering Ph Ds and 11 post.Rajiv
+                Gandhi Technical University is truly a picture of modernization. With an extensive presence on the internet, Rajiv Gandhi Technical University has courses which can suit anyone. Courses offered Rajiv Gandhi Technical University offers
+                undergraduate and postgraduate full time and online courses.They specialize in fields like Management, Forensic Science, Fashion, Engineering, Space Sciences, Social Work, Nanotechnology, Communication and Pharmacy. Facilities The University
+                has provided air-conditioned amphitheatre style classrooms. The Library of Rajiv Gandhi Technical University is equipped with books, periodicals, national and international journals, CD-ROMS, covering all aspects of academic studies and
+                research material.</p>
+    </div>
+    <div class="campus">
+        <h3>Buildings and Facilities in the Campus</h5>
+            <ul>
+                <li>All Weather Approach Road</li>
+                <li>Portable Water Supply System</li>
+                <li>Electrical Generator</li>
+                <li>Students' Canteen</li>
+                <li>Students' Common Room</li>
+                <li>Hostel Boys & Girls</li>
+                <li>Principal's Quarters</li>
+                <li>Digital Library</li>
+                <li>Quarters for Faculty</li>
+                <li>Guest House</li>
+            </ul>
+    </div>
+    <div class="bottomdiv">
+        <div class="bottomText1">
+            <h3>Help & Support</h3>
+            <ul>
+                <li>Technical Support Call -<br>9753944391</li>
+                <li>Support E-mail -<br>aadarshkaushik654@gmail.com</li>
+            </ul>
+        </div>
+        <div class="bottomText2">
+            <h3 class="bottom1h3">Get in Touch With Us</h3>
+            <ul>
+                <li>Address: Narsingharh By pass Road,<br> Near Gandhi Nagar, Bhopal M.P</li>
+                <li>Mail: uit_director@rgtu.net</li>
+                <li>Call: +(91)-(755)-2678812</li>
+                <li>Landline: +(91)-(755)-2678819</li>
+            </ul>
+        </div>
+    </div>
+    <div class="endingText">
+        <div class="text-left">Designed, Developed & Maintained by Aadarsh Kaushik</div>
+        <div class="text-right">For Best view use IE 9 and above, Chrome and Mozilla Firefox at Resolution 1366 X 768.</div>
+    </div>
+</body>
+</html>

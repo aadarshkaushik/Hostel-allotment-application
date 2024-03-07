@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Student</title>
+    <meta charset="utf-8">
+    <meta name="viewport" width="device-width, initial-scale=1.0">
+    <meta name="description" content="Student registration form">
+    <meta name="author" content="Aadarsh Kaushik">
+    <link rel="icon" href="/images/RGPVLOGO.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            font-family: 'Mukta', sans-serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        /* Add padding to containers */
+        
+        .top-nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 1px 10px;
+            text-decoration: none;
+            margin-top: 21px;
+            font-size: 17px;
+        }
+        
+        .top-nav img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50px 50px 50px 50px;
+            margin-top: -22px;
+            margin-left: 20px;
+        }
+        
+        a.header-text {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+        
+        .top-nav {
+            overflow: hidden;
+            background-color: #65799B;
+            border-radius: 3px 3px 3px 3px;
+            width: 1330px;
+            height: 50px;
+        }
+        
+        a.studentText {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+        
+        .container {
+            padding: 16px;
+            background-color: white;
+            border: 0.5px solid grey;
+            border-radius: 25px 25px 25px 25px;
+            width: 500px;
+        }
+        /* Full-width input fields */
+        
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+        
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        /* Overwrite default styles of hr */
+        
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+        /* Set a style for the submit button */
+        
+        .registerbtn {
+            background-color: brown;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+            border-radius: 20px;
+        }
+        
+        .registerbtn:hover {
+            opacity: 1;
+        }
+        /* Add a blue text color to links */
+        
+        a {
+            color: dodgerblue;
+        }
+        /* Set a grey background color and center the text of the "sign in" section */
+        
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+            margin-top: 10px;
+            padding: 0px;
+        }
+        
+        img {
+            width: 370px;
+            height: 370px;
+            margin-left: 120px;
+            margin-top: 100px;
+            box-shadow: 0px 10px 20px 20px gainsboro;
+            border-radius: 80px 80px 80px 80px;
+        }
+        
+        div.block2 {
+            margin-top: 30px;
+            margin-left: 100px;
+            padding: 10px;
+        }
+        
+        div.block1 {
+            margin-left: 50px;
+        }
+        
+        .block1,
+        .block2 {
+            float: left;
+            width: 40%;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="top-nav">
+        <a href="/Html/Home.html" class="image"><img src="/images/RGPVLOGO.jpg"></a>
+        <a href="/Html/Home.html" class="header-text">RGPV Hostel Allotment ||</a>
+        <a href="/Html/studentRegister.html" class="studentText">Student Registration</a>
+    </div>
+    <div class="block1"><img class="bg-img" src="/images/RGPVLOGO.jpg"></div>
+    <div class="block2">
+        <form action="http://localhost:3001/register/" method="POST" id="registerForm" name="registrationForm">
+            <div class="container">
+                <h1>Register</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+                <label for="enroll"><b>Enrollment No. / DTE Registration</b></label>
+                <input type="text" placeholder="Enter Enrollment No." name="enrollment" required>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <label for="psw-repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="pswrepeat" required>
+                <button type="submit" class="registerbtn">Register</button>
+            </div>
+
+            <div class="container signin">
+                <p>Already have an account? <a href="/Html/loginStudent.html">Sign in</a>.</p>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    document.forms['registerForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!validateForm()) {
+            return;
+        }
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            alert("Successfully registered.");
+            return response.json(); // or response.text() or whatever the server sends
+        }).then((body) => {
+            // TODO handle body
+        }).catch((error) => {
+            // TODO handle error
+        });
+    });
+
+    function validateForm() {
+        var enrollment = document.registrationForm.enrollment.value;
+        var password = document.registrationForm.password.value;
+        var rPass = document.registrationForm.pswrepeat.value;
+        if (enrollment.length != 12) {
+            alert("Enrollment no. / DTE Registration no. must be 12 charachters!");
+            return false;
+        }
+        if (password.length < 6) {
+            alert("Password should be atleast 6 charachters!");
+            return false;
+        }
+        if (password.length > 15) {
+            alert("Password should not more than 15 charachters!");
+            return false;
+        }
+        if (rPass == password) {
+            return true;
+        } else {
+            alert("Password and repeat password should match!");
+            return false;
+
+        }
+    }
+
+    function encodeQueryData(data) {
+        const ret = [];
+        for (let d in data)
+            ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+        return ret.join('&');
+    }
+</script>
+
+</html>
